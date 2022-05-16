@@ -1,11 +1,17 @@
 import java.util.Scanner;
 
 public class InputManager {
-//    public void inputFormula() {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Введите подинтегральное выражение: ");
-//        String formula = scanner.nextLine();
-//    }
+    private String formula;
+    
+    public void inputFormula() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите подинтегральное выражение: ");
+        formula = scanner.nextLine();
+    }
+
+    public String getFormula() {
+        return formula;
+    }
 
     /**
      * a нижний предел
