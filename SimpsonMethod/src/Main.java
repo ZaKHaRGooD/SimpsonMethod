@@ -1,10 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         InputManager inputManager = new InputManager();
-//        inputManager.inputFormula();
+        inputManager.inputFormula();
+        String mathForm = inputManager.getFormula();
         int[] parameters = inputManager.inputParameters();
-        SimpsonMethod simpsonMethod = new SimpsonMethod();
+        SimpsonMethod simpsonMethod = new SimpsonMethod(mathForm, parameters[0], parameters[1], parameters[2]);
         System.out.print("Результат: ");
-        System.out.println(simpsonMethod.simpson(parameters[0], parameters[1], parameters[2]));
+        System.out.println(simpsonMethod.simpson());
     }
 }
