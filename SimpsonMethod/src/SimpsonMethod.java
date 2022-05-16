@@ -1,13 +1,21 @@
 public class SimpsonMethod {
+    private final String mathFormula;
+    private final int a;
+    private final int b;
+    private final int n;
+
+    public SimpsonMethod(String mathFormula, int a, int b, int n) {
+        this.mathFormula = mathFormula;
+        this.a = a; // нижний предел
+        this.b = b; // верхний предел
+        this.n = n; // количество отрезков
+    }
     /**
-     * высчитывает определнный интеграл
+     * высчитывает определённый интеграл
      * --------------------------------
-     * @param a нижний предел
-     * @param b верхний предел
-     * @param n количество отрезков
      * @return double
      */
-    public double simpson(int a, int b, int n) {
+    public double simpson() {
         double h = (b - a) / (double) n;
         double x = a;
         double s = function(x) - function(b);
@@ -29,15 +37,15 @@ public class SimpsonMethod {
      * @return double
      */
     private double function(double x) {
-        double result;
+        double result = 0.0;
         MathParser parser = new MathParser();
-        String expression = "2+6";
+        MathParser.replaceVariable("x", x);
         try {
-            result = parser.Parse(expression);
-            return result;
+            result = parser.Parse(mathFormula);
         }
         catch (Exception e) {
             System.out.println("Неправильно введена формула");
         }
+        return result;
     }
 }
