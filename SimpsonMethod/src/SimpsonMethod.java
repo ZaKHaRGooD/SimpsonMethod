@@ -1,3 +1,5 @@
+import MathParser;
+
 public class SimpsonMethod {
     /**
      * высчитывает определнный интеграл
@@ -29,6 +31,15 @@ public class SimpsonMethod {
      * @return double
      */
     private double function(double x) {
-        return x / (4 + x * x);
+        double result;
+        MathParser parser = new MathParser();
+        String expression = "2+6";
+        try {
+            result = parser.Parse(expression);
+            return result;
+        }
+        catch (Exception e) {
+            System.out.println("Неправильно введена формула");
+        }
     }
 }
