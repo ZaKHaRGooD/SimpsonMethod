@@ -12,26 +12,32 @@ public class SimpsonMethod {
     }
     /**
      * высчитывает определённый интеграл
-     * --------------------------------
+     * ---------------------------------
      * @return double
      */
     public double simpson() {
         double h = (b - a) / (double) n;
         double x = a;
         double s = function(x) - function(b);
+        // проверка на NaN
+        if (Double.isNaN(s)) s = 0;
         double result = 0;
         for (int k = 1; k <= n; k++) {
             x = x + h / 2;
             s = s + 4 * function(x);
+            // проверка на NaN
+            if (Double.isNaN(s)) s = 0;
             x = x + h / 2;
             s = s + 2 * function(x);
+            // проверка на NaN
+            if (Double.isNaN(s)) s = 0;
             result = (h / 6) * s;
         }
         return result;
     }
 
     /**
-     * высчитывает значение функции в определнной точке
+     * высчитывает значение функции в определнной точке,
      * значение передаются
      * @param x
      * @return double

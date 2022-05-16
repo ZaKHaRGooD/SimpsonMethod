@@ -2,7 +2,10 @@ import java.util.Scanner;
 
 public class InputManager {
     private String formula;
-    
+
+    /**
+     * считвание формулы из консоли в виде строки
+     */
     public void inputFormula() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите подинтегральное выражение: ");
@@ -21,9 +24,9 @@ public class InputManager {
      */
     public int[] inputParameters() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите a: ");
+        System.out.print("Введите нижний предел a: ");
         int a = scanner.nextInt();
-        System.out.print("Введите b: ");
+        System.out.print("Введите верхний предел b: ");
         int b = scanner.nextInt();
         System.out.print("Введите количество отрезков: ");
         int n = scanner.nextInt();
