@@ -9,10 +9,16 @@ public class MathParser {
         // Объявляем константы
         setVariable("pi",Math.PI);
         setVariable("e",Math.E);
+        // Объявляем переменную x для работы с ней, при необходимости
+        setVariable("x", 0.0);
     }
 
     public static void setVariable(String varName, Double varValue) {
         var.put(varName, varValue);
+    }
+    
+    public static void replaceVariable(String key, Double value) {
+        var.replace(key, value);
     }
 
     public Double getVariable(String varName) throws Exception {
