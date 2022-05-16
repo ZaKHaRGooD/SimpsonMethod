@@ -1,5 +1,3 @@
-import MathParser;
-
 public class SimpsonMethod {
     /**
      * высчитывает определнный интеграл
