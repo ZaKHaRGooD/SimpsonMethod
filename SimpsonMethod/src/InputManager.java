@@ -2,12 +2,15 @@ import java.util.Scanner;
 
 public class InputManager {
     private String formula;
+    private MathParser parser;
+    Scanner scanner;
 
     /**
      * считвание формулы из консоли в виде строки
      */
     public void inputFormula() {
-        Scanner scanner = new Scanner(System.in);
+         this.scanner = new Scanner(System.in);
+        this.parser = new MathParser();
         System.out.print("Введите подинтегральное выражение: ");
         formula = scanner.nextLine();
     }
@@ -22,14 +25,18 @@ public class InputManager {
      * n количество отрезков
      * @return int[]
      */
-    public int[] inputParameters() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите нижний предел a: ");
-        int a = scanner.nextInt();
-        System.out.print("Введите верхний предел b: ");
-        int b = scanner.nextInt();
-        System.out.print("Введите количество отрезков: ");
-        int n = scanner.nextInt();
-        return new int[]{a, b, n};
+    public double[] inputParameters() {
+        try {
+            System.out.print("Введите нижний предел a: ");
+            double a = parser.Parse(scanner.nextLine());
+            System.out.print("Введите верхний предел b: ");
+            double b = parser.Parse(scanner.nextLine());
+            System.out.print("Введите количество отрезков: ");
+            int n = scanner.nextInt();
+            return new double[]{a, b, n};
+        } catch (Exception e) {
+            System.out.println("Error, invalid input data");
+            return null;
+        }
     }
 }

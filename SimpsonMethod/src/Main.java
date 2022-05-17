@@ -5,7 +5,7 @@ public class Main {
         InputManager inputManager = new InputManager();
         inputManager.inputFormula();
         String mathForm = inputManager.getFormula();
-        int[] parameters = inputManager.inputParameters();
+        double[] parameters = inputManager.inputParameters();
         SimpsonMethod simpsonMethod = new SimpsonMethod(mathForm, parameters[0], parameters[1], parameters[2]);
         System.out.print("Результат: ");
         System.out.println(simpsonMethod.simpson());

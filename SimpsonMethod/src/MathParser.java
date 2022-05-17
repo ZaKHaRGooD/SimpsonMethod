@@ -34,6 +34,10 @@ public class MathParser {
         operations.put("lg", "десятичный логарифм");
         operations.put("log", "логарифм х по основанию y");
         operations.put("sqrt", "квадратный корень");
+        operations.put("arcsin", "arcsin");
+        operations.put("arccos", "arccos");
+        operations.put("arctan", "arctan");
+        operations.put("arcctg", "arcctg");
     }
 
     /**
@@ -315,6 +319,14 @@ public class MathParser {
                 return new Result(Math.log10(r.acc), r.rest);
             case "sqrt": // квадратный корень
                 return new Result(Math.sqrt(r.acc), r.rest);
+            case "arcsin":
+                return new Result(Math.asin(r.acc), r.rest);
+            case "arccos":
+                return new Result(Math.acos(r.acc), r.rest);
+            case "arctan":
+                return new Result(Math.atan(r.acc), r.rest);
+            case "arcctg":
+                return new Result(1 / Math.atan(r.acc), r.rest);
             default:
                 throw new Exception("function '" + func + "' is not defined");
         }
